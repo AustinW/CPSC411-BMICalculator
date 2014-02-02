@@ -7,6 +7,7 @@
 //
 
 #import "BMI.h"
+#import <FontAwesomeKit/FontAwesomeKit.h>
 
 @implementation BMI
 
@@ -31,18 +32,36 @@
     }
 }
 
-+ (NSString*)expressionFromBMI:(NSString*)description
++ (NSAttributedString*)expressionFromBMI:(NSString*)description
 {
+    FAKFontAwesome *smileIcon = [FAKFontAwesome smileOIconWithSize:100];
+    FAKFontAwesome *frownIcon = [FAKFontAwesome frownOIconWithSize:100];
+    
+    NSAttributedString *smileIconText = [smileIcon attributedString];
+    NSAttributedString *frownIconText = [frownIcon attributedString];
+    
     NSDictionary *expressions = @{
-        @"Severe thinness": @"😳",
-        @"Moderate thinness": @"😔",
-        @"Mild thinness": @"😄",
-        @"Normal range": @"😄",
-        @"Overweight": @"😔",
-        @"Obese class I (Moderate)": @"😔",
-        @"Obese class II (Severe)": @"😣",
-        @"Obese class III (Very Severe)": @"😳"
-    };
+                                  @"Severe thinness": frownIconText,
+                                  @"Moderate thinness": frownIconText,
+                                  @"Mild thinness": smileIconText,
+                                  @"Normal range": smileIconText,
+                                  @"Overweight": frownIconText,
+                                  @"Obese class I (Moderate)": frownIconText,
+                                  @"Obese class II (Severe)": frownIconText,
+                                  @"Obese class III (Very Severe)": frownIconText
+                                  };
+    
+    
+//    NSDictionary *expressions = @{
+//        @"Severe thinness": @"😳",
+//        @"Moderate thinness": @"😔",
+//        @"Mild thinness": @"😄",
+//        @"Normal range": @"😄",
+//        @"Overweight": @"😔",
+//        @"Obese class I (Moderate)": @"😔",
+//        @"Obese class II (Severe)": @"😣",
+//        @"Obese class III (Very Severe)": @"😳"
+//    };
     
     return [expressions objectForKey:description];
 }

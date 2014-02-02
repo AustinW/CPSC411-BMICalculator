@@ -20,7 +20,7 @@
 
 + (NSString*)descriptionFromBMI:(NSDecimalNumber*)bmi;
 
-+ (NSString*)expressionFromBMI:(NSString*)description;
++ (NSAttributedString*)expressionFromBMI:(NSString*)description;
 
 + (NSDecimalNumber*)convertHeight:(NSDecimalNumber*)height toMetric:(BOOL)metric;
 

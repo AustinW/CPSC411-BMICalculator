@@ -44,7 +44,7 @@
         
         bmiDescription.text = [NSString stringWithFormat:@"%@", bmiOutcome];
         bmiCalculation.text = [NSString stringWithFormat:@"%@", roundedBmi];
-        expression.text = [BMI expressionFromBMI:bmiOutcome];
+        expression.attributedText = [BMI expressionFromBMI:bmiOutcome];
         
         [self animateExpression];
     } else {
